@@ -16,4 +16,13 @@ School of Software Engineering, East China Normal University, Maker Practice Cou
 - 将传感器数据连接到 OneNET 官方网站（基于MQTT协议）
 - 将传感器数据实时通过 ESP-NOW 协议传输至 Master 主机
 
+## 硬件信息
+- ESP-Wroom-32开发板
+- DHT22 湿温度传感器
+- MPU6050 六轴加速度传感器
+- MQ135 有毒气体检测传感器
+- 光照传感器、火焰传感器
+## 配置信息：
+- MAC地址：1C:69:20:2B:9D:58
+
 # Master 主机
