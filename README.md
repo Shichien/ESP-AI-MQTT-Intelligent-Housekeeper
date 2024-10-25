@@ -25,4 +25,29 @@ School of Software Engineering, East China Normal University, Maker Practice Cou
 ## 配置信息：
 - MAC地址：1C:69:20:2B:9D:58
 
-# Master 主机
+# Master 主机                                    
+主机中成功驱动了讯飞语音大模型，包括：TSS、IAT、LLM 等。
+
+## 项目环境及工具列表
+本项目设计的环境为 Windows 11，开发板编程使用 Clion Platform，
+选择 Upesy_Wroom 开发环境，Arduino 框架，模拟仿真平台使用 Wokwi Simulator，
+串口监视器选用 VOFA+ 1.3.10，波特率为115200（8N1），代码使用 Vim 编写，
+课程报告使用 LaTeX 撰写，并使用 Git 进行版本管理。
+
+#### 注意：所有工程文件已一并附上。
+#### 包括项目代码、课程报告LateX源代码、视频剪辑及海报设计工程文件一并已上传。
+
+## Notice 1
+
+0. 参考项目置于 \bib 文件夹之中
+1. 海报文件使用 Adobe Illustrator 制作，部分工程素材由大模型 DALL·E 生成 
+2. 展示视频使用 Adobe Premiere Pro 制作，所有工程素材来自个人创作，3D 基准面使用 Adobe After Effects 制作
+3. PPT 使用 LateX + Beamer 制作，结合 WPS PPT 进行展示，使用 OBS Studio 进行录制
+
+## Notice 2
+
+1. 该项目分为主机（Master）、从机（Slave）、以及可添加的多个侧机（Side）
+2. 主机承担的职责是主控中心，负责运行语音识别与语音播报、大模型对话；
+3. 从机承担的职责是获取传感器数据，并连接至 MQTT 服务器，通过 ESP-NOW 协议无线传输给主机。
+4. 为方便调试，主机、从机置于同一块大型面包板上，由于主机和从机之间本身实现的是无线通信，实际可将其分开，最大距离约为10米左右。
+5. 侧机（Side）可以添加约 20 个，这是基于 ESP-NOW 协议的最大同机数量。
