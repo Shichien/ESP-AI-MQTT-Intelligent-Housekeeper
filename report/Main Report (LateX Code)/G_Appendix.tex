@@ -1,0 +1,101 @@
+
+\subsection{项目布局及构建}
+
+\begin{tikzpicture}
+    % 绘制 forest 树结构
+    \node at (0, 0) {
+        \begin{forest}
+            for tree={
+                grow=east,
+                draw,
+                edge={-latex},
+                rounded corners,
+                node options={align=center},
+                anchor=west,
+                parent anchor=east,
+                child anchor=west,
+                delay={where content={}{shape=coordinate}{}},
+            }
+            [ESP32
+                [Master
+                    [/src
+                        [main.cpp]
+                        [Config]
+                        [Authorization]
+                        [STT]
+                        [LLM]
+                        [TTS]
+                        [CommunicationModule
+                            [ESPNOW]
+                            [Network]
+                        ]
+                        [SpeakToUser]
+                        [Audio]
+                    ]
+                    [/.pio]
+                    [platfromio.ini]
+                ]
+                [Slave
+                    [/src
+                        [DHT22]
+                        [EspNow]
+                        [MG90Servo]
+                        [MQ]
+                        [MQTT]
+                        [OtherSensors]
+                        [Snake]
+                        [configuration]
+                        [main.cpp]
+                    ]
+                    [.pio]
+                    [platfromio.ini]
+                ]
+            ]
+        \end{forest}
+    };
+
+    % 在右侧添加文本
+    \node[anchor=west] at (4, 0) { % 调整 x 方向的偏移量以调整文本位置
+        \begin{minipage}{0.4\textwidth} % 调整 minipage 的宽度来控制文本框大小
+            \textbf{Project Structure:}\\
+            项目的树状结构如图所示，最初编译时我将所有的头文件都置于Configuration中，每一份文件都包含它，导致编译非常缓慢，于是将不重合的部分库取出，单独置于需要的文件中，编译速度显著提升。
+        \end{minipage}
+    };
+
+\end{tikzpicture}
+
+\subsection{参考资料}
+\begin{itemize}
+    \item Ollama API文档：\href{https://github.com/ollama/ollama/blob/main/docs/api.md\#create-a-model}{\underline{https://github.com/ollama/ollama/blob/main/docs/api.md\#create-a-model}}
+    \item 心知天气API文档：\href{https://seniverse.yuque.com/hyper\_data/api\_v3}{\underline{https://seniverse.yuque.com/hyper\_data/api\_v3}}
+    \item 讯飞API接口文档：\href{https://xfyun.cn/doc}{\underline{https://xfyun.cn/doc}}
+    \item OneNET平台文档：\href{https://open.iot.10086.cn/doc/v5/fuse/detail/920}{\underline{https://open.iot.10086.cn/doc/v5/fuse/detail/920}}
+    \item —————————— 参考了很多Github库中的Example —————————————
+    \item ESPRessif各种库文档：\href{https://docs.espressif.com/projects/arduino-esp32/en/latest/libraries.html}{\underline{https://docs.espressif.com/projects/arduino-esp32/en/latest/libraries.html}}
+    \item U8g2 OLED库：\href{https://github.com/olikraus/u8g2}{\underline{https://github.com/olikraus/u8g2}}
+    \item ArduinoJson库：\href{https://arduinojson.org/}{\underline{https://arduinojson.org/}}
+    \item HTTPClient库：\href{https://github.com/espressif/arduino-esp32/tree/master/libraries/HTTPClient}{\underline{https://github.com/espressif/arduino-esp32/tree/master/libraries/HTTPClient}}
+    \item ESP-I2S协议库：\href{https://github.com/schreibfaul1/ESP32-audioI2S}{\underline{https://github.com/schreibfaul1/ESP32-audioI2S}}
+    \item Adafruit开源硬件公司各常用模块、传感器介绍网站：\href{https://lastminuteengineers.com/electronics/arduino-projects/}{\underline{https://lastminuteengineers.com/electronics/arduino-projects/}}
+    \item ——————————————————————————————————————————
+    \item 【波特律动】在线串口调试助手：\href{https://serial.keysking.com/}{\underline{https://serial.keysking.com/}}
+    \item VOFA+ 1.3.10：\href{https://www.vofa.com/}{\underline{https://www.vofa.com/}}
+    \item ——————————————————————————————————————————
+    \item MPU6050姿态解算2-欧拉角\&旋转矩阵：\href{https://zhuanlan.zhihu.com/p/195683958}{\underline{https://zhuanlan.zhihu.com/p/195683958}}
+    \item 学习心得|基于卡尔曼滤波的MPU6050姿态解算：\href{https://www.bilibili.com/video/BV1sL411F7fu}{\underline{https://www.bilibili.com/video/BV1sL411F7fu}}
+    \item 对MQ系列传感器采集电压与浓度转换的公式的探索：\href{https://zhuanlan.zhihu.com/p/453499554}{\underline{https://zhuanlan.zhihu.com/p/453499554}}
+    \item 南京大学CSI前沿技术分享：\href{https://www.bilibili.com/video/BV1Cv411q7Cz}{\underline{https://www.bilibili.com/video/BV1Cv411q7Cz}}
+    \item 新版微信小程序连接到OneNET平台：\href{https://blog.csdn.net/2401\_83704192/article/details/138913230}{https://blog.csdn.net/2401\_83704192/article/details/138913230}
+    \item ESP32发声：\href{https://github.com/MetaWu2077/Esp32\_VoiceChat\_LLMs}{https://github.com/MetaWu2077/Esp32\_VoiceChat\_LLMs}
+    \item 微信开发者工具使用文档：\href{https://developers.weixin.qq.com/miniprogram/dev/devtools/edit.html}{https://developers.weixin.qq.com/miniprogram/dev/devtools/edit.html}
+    \item ——————————————————————————————————————————
+    \item Unix时间戳转换工具：\href{https://www.jyshare.com/front-end/852/}{\underline{https://www.jyshare.com/front-end/852/}}
+    \item ESPNOW 通信不成功：\href{https://esp32.com/viewtopic.php?p=132946}{\underline{https://esp32.com/viewtopic.php?p=132946}}
+    \item ——————————————————————————————————————————
+    \item 华东师范大学软件学院实验报告、Beamer模板（本人所作）：\href{https://github.com/Shichien/ECNU-LateX-Template}{https://github.com/Shichien/ECNU-LateX-Template}
+\end{itemize}
+
+\subsection*{Special Thanks}
+ @ Azazo1
+
+ @ Luryem
