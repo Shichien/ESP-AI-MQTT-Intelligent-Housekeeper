@@ -1,0 +1,45 @@
+<!-- Title Header -->
+<view class = "container">
+	<view class = "head_box">
+    	<image src = "/images/OneNET.jpg" mode =""/>
+    <view>{{title}}</view>
+  	</view>
+<!-- Weather Module -->
+  	<view class = "weather_box">
+    	<view class = "welcome_text">
+      		{{welcome}}
+    	</view>
+  		<view class = "flex">
+  			<view class = "width50">
+				<image src="/images/Weather.jpg" style="width: 200rpx; margin-top: 30rpx; margin-left: 30rpx;" mode="widthFix"/>
+  			</view>
+  			<view>
+				<view class= "location_text">
+					<image src="/images/located.jpg" style ="width: 20rpx; margin-top: 10rpx;" mode="widthFix"/><text
+					style="font-size: 24rpx;">{{location}}</text>
+				</view>
+				<view>
+					<view class = "temperature_text">
+						{{temperature}}°C
+					</view>
+				</view>
+  			</view>
+  		</view>
+  	</view>
+<!-- Sensor UI -->
+	<view class = "sensors-system-title">
+		传感器设备信息
+	</view>
+	<view class = "sensors-system">
+		<view wx:for="{{sensorList}}" class = "system-info">
+			<view class = "sensors-system-box1">
+				<image src="{{item.img}}" style = "height: 80rpx; "mode="heightFix"/>
+			</view>
+			<view class = "sensors-system-box2">
+				<view>{{item.parameter}}</view>
+				<view>{{item.value}}{{item.unit}}</view>
+				<view>{{item.name}}</view>
+			</view>
+		</view>
+	</view>
+</view>
